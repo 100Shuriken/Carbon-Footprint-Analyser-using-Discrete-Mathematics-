@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Asha",
+    "quantities": {
+      "car_petrol": 9000, "flight_short": 2400, "train": 300,
+      "electricity": 3600, "lpg": 170,
+      "diet_heavy_meat": 250, "diet_average": 115,
+      "waste_landfill": 300, "waste_recycled": 40,
+      "clothing": 25, "electronics": 2
+    }
+  },
+  {
+    "name": "Rohan",
+    "quantities": {
+      "motorbike": 4000, "bus": 3000, "train": 2500,
+      "electricity": 1800, "lpg": 140,
+      "diet_average": 365,
+      "waste_landfill": 200, "waste_recycled": 60,
+      "clothing": 10, "electronics": 1
+    }
+  },
+  {
+    "name": "Meera",
+    "quantities": {
+      "train": 4000, "bicycle": 1500, "walk": 600,
+      "electricity": 1500, "solar": 800, "lpg": 100,
+      "diet_vegetarian": 365,
+      "waste_landfill": 60, "waste_recycled": 120, "waste_compost": 100,
+      "clothing": 6, "electronics": 1
+    }
+  },
+  {
+    "name": "Kabir",
+    "quantities": {
+      "car_diesel": 6000, "flight_long": 14000, "flight_short": 1200,
+      "electricity": 2000, "natural_gas": 150,
+      "diet_vegetarian": 365,
+      "waste_landfill": 250, "waste_recycled": 50,
+      "clothing": 15, "electronics": 4
+    }
+  },
+  {
+    "name": "Zoya",
+    "quantities": {
+      "bus": 3500, "walk": 800,
+      "electricity": 1200, "lpg": 90,
+      "diet_vegan": 365,
+      "waste_landfill": 50, "waste_recycled": 80, "waste_compost": 90,
+      "clothing": 4, "electronics": 1
+    }
+  }
+]
