@@ -280,6 +280,27 @@ class TestRecurrence(unittest.TestCase):
         self.assertAlmostEqual(recurrence.cumulative(100, 0.5, 0, 3), 100 + 50 + 25)
 
 
+class TestWeb(unittest.TestCase):
+    def test_data_matches_core_modules(self):
+        from carbon_analyser import web
+        d = web.build_data(EXAMPLES / "profiles.json", EXAMPLES / "network.json")
+        profiles = Profile.load(EXAMPLES / "profiles.json")
+        for p, pd in zip(profiles, d["profiles"]):
+            self.assertAlmostEqual(pd["total"], total_emissions(p), places=1)
+            self.assertEqual(len(pd["plans"]), web.MAX_BUDGET + 1)
+        g = graphs.TransportGraph.from_json(EXAMPLES / "network.json")
+        r = d["network"]["routes"][",".join(sorted(d["network"]["modes"])) + "|Mumbai|Goa"]["greenest"]
+        self.assertEqual(r["nodes"], g.greenest_route("Mumbai", "Goa").nodes)
+        self.assertTrue(d["hasse"]["properties"]["partial_order"])
+
+    def test_render_injects_data(self):
+        from carbon_analyser import web
+        html = web.render({"x": "</script>"}, standalone=True)
+        self.assertNotIn("/*__DATA__*/null", html)
+        self.assertTrue(html.startswith("<!doctype html>"))
+        self.assertNotIn('"</script>"', html)
+
+
 class TestCLI(unittest.TestCase):
     def run_cli(self, *argv):
         buf = io.StringIO()

@@ -8,7 +8,7 @@ It is written in pure Python (3.10+). It needs no third-party packages.
 
 ```bash
 python -m carbon_analyser demo            # run everything on the bundled examples
-python -m unittest discover -s tests      # run the 44 tests
+python -m unittest discover -s tests      # run the tests
 ```
 
 ## What it does, and which maths it uses
@@ -31,6 +31,18 @@ python -m unittest discover -s tests      # run the 44 tests
 | Choose the best set of reduction actions within an effort budget | **Power set** (2ⁿ subsets as bitmasks), exhaustive search, 0/1 knapsack DP | `combinatorics.py` |
 | Count plans, conflict-free plans, roll-out orders | **Combinations** C(n,k), **permutations** k!, pigeonhole principle | `combinatorics.py` |
 | Project emissions year by year, years to reach a target | **Recurrence relations** Eₙ = a·Eₙ₋₁ + b, closed form, fixed point | `recurrence.py` |
+
+## Web report
+
+`python -m carbon_analyser web` writes `docs/index.html`, a single self-contained
+page you can open in any browser. You pick a person and explore their footprint,
+the logic rules that apply, the best reduction plan (with a budget slider), a
+year-by-year projection, the Hasse diagram and set comparisons, a route finder on
+a map of the transport network, and the emission bands. The Python modules
+compute every figure; the page only displays them.
+
+If GitHub Pages is enabled for the `docs/` folder, the same file can be served
+as the project website.
 
 ## Commands
 
@@ -124,6 +136,9 @@ carbon_analyser/
   combinatorics.py      counting, plan optimisation over the power set
   recurrence.py         emission projections with linear recurrences
   cli.py                command-line interface
+  web.py                builds the interactive HTML report
+  web_template.html     page template the report is injected into
+docs/index.html         the generated web report
 examples/               sample profiles and an inter-city network
 tests/                  unit tests
 ```

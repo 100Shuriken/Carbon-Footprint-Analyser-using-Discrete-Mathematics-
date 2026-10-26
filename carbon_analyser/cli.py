@@ -7,6 +7,7 @@
     python -m carbon_analyser logic "drives_a_lot & ~uses_ev -> T"
     python -m carbon_analyser project --e0 4200 --rate 0.1 --add 50 --years 10 --target 2300
     python -m carbon_analyser factors
+    python -m carbon_analyser web [-o docs/index.html]
 """
 
 from __future__ import annotations
@@ -243,6 +244,13 @@ def cmd_project(args: argparse.Namespace) -> None:
         print(f"  years to reach {args.target:g}: {y if y is not None else 'never'}")
 
 
+def cmd_web(args: argparse.Namespace) -> None:
+    from . import web
+
+    out = web.write(args.output, args.profiles, args.network)
+    print(f"Wrote {out} ({out.stat().st_size // 1024} KB). Open it in a browser.")
+
+
 def cmd_demo(args: argparse.Namespace) -> None:
     profiles_file = EXAMPLES / "profiles.json"
     network_file = EXAMPLES / "network.json"
@@ -284,6 +292,12 @@ def build_parser() -> argparse.ArgumentParser:
     lg.add_argument("formula")
     lg.add_argument("--equiv", help="check equivalence with this formula")
     lg.set_defaults(func=cmd_logic)
+
+    w = sub.add_parser("web", help="build the interactive HTML report")
+    w.add_argument("-o", "--output", default="docs/index.html", help="output file (default docs/index.html)")
+    w.add_argument("--profiles", default=str(EXAMPLES / "profiles.json"))
+    w.add_argument("--network", default=str(EXAMPLES / "network.json"))
+    w.set_defaults(func=cmd_web)
 
     pr = sub.add_parser("project", help="project emissions with a recurrence relation")
     pr.add_argument("--e0", type=float, required=True, help="initial footprint (kg)")
