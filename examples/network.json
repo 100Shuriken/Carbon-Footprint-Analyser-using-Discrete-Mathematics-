@@ -1,0 +1,164 @@
+{
+  "description": "Approximate inter-city distances in western India, one edge per available transport mode.",
+  "nodes": [
+    "Mumbai",
+    "Pune",
+    "Nashik",
+    "Aurangabad",
+    "Kolhapur",
+    "Goa",
+    "Ratnagiri"
+  ],
+  "edges": [
+    {
+      "from": "Mumbai",
+      "to": "Pune",
+      "mode": "car_petrol",
+      "km": 150
+    },
+    {
+      "from": "Mumbai",
+      "to": "Pune",
+      "mode": "train",
+      "km": 192
+    },
+    {
+      "from": "Mumbai",
+      "to": "Pune",
+      "mode": "bus",
+      "km": 155
+    },
+    {
+      "from": "Mumbai",
+      "to": "Nashik",
+      "mode": "car_petrol",
+      "km": 167
+    },
+    {
+      "from": "Mumbai",
+      "to": "Nashik",
+      "mode": "train",
+      "km": 185
+    },
+    {
+      "from": "Pune",
+      "to": "Nashik",
+      "mode": "bus",
+      "km": 211
+    },
+    {
+      "from": "Pune",
+      "to": "Aurangabad",
+      "mode": "bus",
+      "km": 236
+    },
+    {
+      "from": "Nashik",
+      "to": "Aurangabad",
+      "mode": "car_petrol",
+      "km": 183
+    },
+    {
+      "from": "Nashik",
+      "to": "Aurangabad",
+      "mode": "train",
+      "km": 225
+    },
+    {
+      "from": "Pune",
+      "to": "Kolhapur",
+      "mode": "car_petrol",
+      "km": 230
+    },
+    {
+      "from": "Pune",
+      "to": "Kolhapur",
+      "mode": "train",
+      "km": 327
+    },
+    {
+      "from": "Kolhapur",
+      "to": "Goa",
+      "mode": "bus",
+      "km": 215
+    },
+    {
+      "from": "Mumbai",
+      "to": "Ratnagiri",
+      "mode": "train",
+      "km": 330
+    },
+    {
+      "from": "Mumbai",
+      "to": "Ratnagiri",
+      "mode": "car_petrol",
+      "km": 350
+    },
+    {
+      "from": "Ratnagiri",
+      "to": "Goa",
+      "mode": "train",
+      "km": 250
+    },
+    {
+      "from": "Ratnagiri",
+      "to": "Kolhapur",
+      "mode": "bus",
+      "km": 130
+    },
+    {
+      "from": "Mumbai",
+      "to": "Goa",
+      "mode": "flight_short",
+      "km": 440
+    },
+    {
+      "from": "Mumbai",
+      "to": "Goa",
+      "mode": "car_petrol",
+      "km": 590
+    },
+    {
+      "from": "Pune",
+      "to": "Goa",
+      "mode": "flight_short",
+      "km": 380
+    },
+    {
+      "from": "Mumbai",
+      "to": "Aurangabad",
+      "mode": "flight_short",
+      "km": 280
+    }
+  ],
+  "positions": {
+    "Mumbai": [
+      19.08,
+      72.88
+    ],
+    "Pune": [
+      18.52,
+      73.86
+    ],
+    "Nashik": [
+      20.0,
+      73.79
+    ],
+    "Aurangabad": [
+      19.88,
+      75.34
+    ],
+    "Kolhapur": [
+      16.7,
+      74.24
+    ],
+    "Goa": [
+      15.49,
+      73.83
+    ],
+    "Ratnagiri": [
+      16.99,
+      73.3
+    ]
+  }
+}
